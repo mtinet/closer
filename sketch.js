@@ -5,7 +5,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(710, 200);
+  createCanvas(1200, 800);
   song.loop();
 
   // create a new Amplitude analyzer
@@ -20,9 +20,10 @@ function draw() {
 
   // Get the average (root mean square) amplitude
   var rms = analyzer.getLevel();
-  fill(127);
+  var ss = map(rms, 0, 0.3, 0, 255)
+  fill(100+ss, 0, 0);
   stroke(0);
 
   // Draw an ellipse with size based on volume
-  ellipse(width/2, height/2, 10+rms*200, 10+rms*200);
+  ellipse(width/2, height/2, 10+rms*400, 10+rms*200);
 }
